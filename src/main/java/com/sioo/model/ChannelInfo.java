@@ -15,6 +15,8 @@ public class ChannelInfo {
 
     private Integer network;
 
+
+
     private String account;
 
     private String passpwd;
