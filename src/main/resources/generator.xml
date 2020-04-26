@@ -5,11 +5,12 @@
 <generatorConfiguration>
     <!--数据库驱动-->
     <classPathEntry
-            location="/home/xywei/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>
+            location="/home/xywei/.m2/repository/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar"/>
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="true"/>
+            <property name="mapUnderscoreToCamelCase" value="true"/>
         </commentGenerator>
         <!--数据库链接地址账号密码-->
 
@@ -35,13 +36,8 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="word_route_strategy" domainObjectName="wordRouteStrategy" enableCountByExample="false"
+        <table tableName="channel_info" domainObjectName="ChannelInfo" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-
-        <table tableName="word_route_detail" domainObjectName="wordRouteDetail" enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-
     </context>
 </generatorConfiguration>
