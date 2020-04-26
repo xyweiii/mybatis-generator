@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sioo.dao.ChannelInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sioo.model.ChannelInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="channel_name" jdbcType="VARCHAR" property="channelName" />
+    <result column="channel_type" jdbcType="INTEGER" property="channelType" />
+    <result column="record_type" jdbcType="INTEGER" property="recordType" />
+    <result column="network" jdbcType="INTEGER" property="network" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="passpwd" jdbcType="VARCHAR" property="passpwd" />
+    <result column="expid_len" jdbcType="INTEGER" property="expidLen" />
+    <result column="send_rate" jdbcType="INTEGER" property="sendRate" />
+    <result column="channel_ip" jdbcType="VARCHAR" property="channelIp" />
+    <result column="channel_port" jdbcType="INTEGER" property="channelPort" />
+    <result column="corpid" jdbcType="VARCHAR" property="corpid" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="serviceid" jdbcType="VARCHAR" property="serviceid" />
+    <result column="msgformat" jdbcType="INTEGER" property="msgformat" />
+    <result column="local_ip" jdbcType="VARCHAR" property="localIp" />
+    <result column="local_port" jdbcType="INTEGER" property="localPort" />
+    <result column="nodeid" jdbcType="VARCHAR" property="nodeid" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="provider" jdbcType="VARCHAR" property="provider" />
+    <result column="words_len" jdbcType="INTEGER" property="wordsLen" />
+    <result column="words_maxlen" jdbcType="INTEGER" property="wordsMaxlen" />
+    <result column="sign_position" jdbcType="INTEGER" property="signPosition" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="balance" jdbcType="VARCHAR" property="balance" />
+    <result column="channel_develop_file" jdbcType="VARCHAR" property="channelDevelopFile" />
+    <result column="trade_label" jdbcType="VARCHAR" property="tradeLabel" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="login_url" jdbcType="VARCHAR" property="loginUrl" />
+    <result column="submit_url" jdbcType="VARCHAR" property="submitUrl" />
+    <result column="balance_url" jdbcType="VARCHAR" property="balanceUrl" />
+    <result column="status_up_method" jdbcType="BIGINT" property="statusUpMethod" />
+    <result column="status_url" jdbcType="VARCHAR" property="statusUrl" />
+    <result column="up_url" jdbcType="VARCHAR" property="upUrl" />
+    <result column="is_province" jdbcType="INTEGER" property="isProvince" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="shield_area" jdbcType="VARCHAR" property="shieldArea" />
+    <result column="mobile_shield_area" jdbcType="VARCHAR" property="mobileShieldArea" />
+    <result column="telecom_shield_area" jdbcType="VARCHAR" property="telecomShieldArea" />
+    <result column="unicom_shield_area" jdbcType="VARCHAR" property="unicomShieldArea" />
+    <result column="extNo_append_number" jdbcType="INTEGER" property="extnoAppendNumber" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="reject_reason" jdbcType="VARCHAR" property="rejectReason" />
+    <result column="comments" jdbcType="VARCHAR" property="comments" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="updater" jdbcType="VARCHAR" property="updater" />
+    <result column="route_type" jdbcType="INTEGER" property="routeType" />
+    <result column="route_channel" jdbcType="INTEGER" property="routeChannel" />
+    <result column="route_require" jdbcType="INTEGER" property="routeRequire" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, channel_name, channel_type, record_type, network, account, passpwd, 
+    expid_len, send_rate, channel_ip, channel_port, corpid, number, serviceid, msgformat, 
+    local_ip, local_port, nodeid, url, provider, words_len, words_maxlen, sign_position, 
+    price, balance, channel_develop_file, trade_label, status, login_url, submit_url, 
+    balance_url, status_up_method, status_url, up_url, is_province, area, shield_area, 
+    mobile_shield_area, telecom_shield_area, unicom_shield_area, extNo_append_number, 
+    is_deleted, reject_reason, comments, creator, create_date, update_date, updater, 
+    route_type, route_channel, route_require
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from channel_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from channel_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sioo.model.ChannelInfo">
+    insert into channel_info (id, tenant_id, channel_name, 
+      channel_type, record_type, network, 
+      account, passpwd, expid_len, 
+      send_rate, channel_ip, channel_port, 
+      corpid, number, serviceid, 
+      msgformat, local_ip, local_port, 
+      nodeid, url, provider, 
+      words_len, words_maxlen, sign_position, 
+      price, balance, channel_develop_file, 
+      trade_label, status, login_url, 
+      submit_url, balance_url, status_up_method, 
+      status_url, up_url, is_province, 
+      area, shield_area, mobile_shield_area, 
+      telecom_shield_area, unicom_shield_area, extNo_append_number, 
+      is_deleted, reject_reason, comments, 
+      creator, create_date, update_date, 
+      updater, route_type, route_channel, 
+      route_require)
+    values (#{id,jdbcType=VARCHAR}, #{tenantId,jdbcType=VARCHAR}, #{channelName,jdbcType=VARCHAR}, 
+      #{channelType,jdbcType=INTEGER}, #{recordType,jdbcType=INTEGER}, #{network,jdbcType=INTEGER}, 
+      #{account,jdbcType=VARCHAR}, #{passpwd,jdbcType=VARCHAR}, #{expidLen,jdbcType=INTEGER}, 
+      #{sendRate,jdbcType=INTEGER}, #{channelIp,jdbcType=VARCHAR}, #{channelPort,jdbcType=INTEGER}, 
+      #{corpid,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{serviceid,jdbcType=VARCHAR}, 
+      #{msgformat,jdbcType=INTEGER}, #{localIp,jdbcType=VARCHAR}, #{localPort,jdbcType=INTEGER}, 
+      #{nodeid,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{provider,jdbcType=VARCHAR}, 
+      #{wordsLen,jdbcType=INTEGER}, #{wordsMaxlen,jdbcType=INTEGER}, #{signPosition,jdbcType=INTEGER}, 
+      #{price,jdbcType=DOUBLE}, #{balance,jdbcType=VARCHAR}, #{channelDevelopFile,jdbcType=VARCHAR}, 
+      #{tradeLabel,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{loginUrl,jdbcType=VARCHAR}, 
+      #{submitUrl,jdbcType=VARCHAR}, #{balanceUrl,jdbcType=VARCHAR}, #{statusUpMethod,jdbcType=BIGINT}, 
+      #{statusUrl,jdbcType=VARCHAR}, #{upUrl,jdbcType=VARCHAR}, #{isProvince,jdbcType=INTEGER}, 
+      #{area,jdbcType=VARCHAR}, #{shieldArea,jdbcType=VARCHAR}, #{mobileShieldArea,jdbcType=VARCHAR}, 
+      #{telecomShieldArea,jdbcType=VARCHAR}, #{unicomShieldArea,jdbcType=VARCHAR}, #{extnoAppendNumber,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=INTEGER}, #{rejectReason,jdbcType=VARCHAR}, #{comments,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{updater,jdbcType=VARCHAR}, #{routeType,jdbcType=INTEGER}, #{routeChannel,jdbcType=INTEGER}, 
+      #{routeRequire,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sioo.model.ChannelInfo">
+    insert into channel_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="channelName != null">
+        channel_name,
+      </if>
+      <if test="channelType != null">
+        channel_type,
+      </if>
+      <if test="recordType != null">
+        record_type,
+      </if>
+      <if test="network != null">
+        network,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="passpwd != null">
+        passpwd,
+      </if>
+      <if test="expidLen != null">
+        expid_len,
+      </if>
+      <if test="sendRate != null">
+        send_rate,
+      </if>
+      <if test="channelIp != null">
+        channel_ip,
+      </if>
+      <if test="channelPort != null">
+        channel_port,
+      </if>
+      <if test="corpid != null">
+        corpid,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="serviceid != null">
+        serviceid,
+      </if>
+      <if test="msgformat != null">
+        msgformat,
+      </if>
+      <if test="localIp != null">
+        local_ip,
+      </if>
+      <if test="localPort != null">
+        local_port,
+      </if>
+      <if test="nodeid != null">
+        nodeid,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="provider != null">
+        provider,
+      </if>
+      <if test="wordsLen != null">
+        words_len,
+      </if>
+      <if test="wordsMaxlen != null">
+        words_maxlen,
+      </if>
+      <if test="signPosition != null">
+        sign_position,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="channelDevelopFile != null">
+        channel_develop_file,
+      </if>
+      <if test="tradeLabel != null">
+        trade_label,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="loginUrl != null">
+        login_url,
+      </if>
+      <if test="submitUrl != null">
+        submit_url,
+      </if>
+      <if test="balanceUrl != null">
+        balance_url,
+      </if>
+      <if test="statusUpMethod != null">
+        status_up_method,
+      </if>
+      <if test="statusUrl != null">
+        status_url,
+      </if>
+      <if test="upUrl != null">
+        up_url,
+      </if>
+      <if test="isProvince != null">
+        is_province,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="shieldArea != null">
+        shield_area,
+      </if>
+      <if test="mobileShieldArea != null">
+        mobile_shield_area,
+      </if>
+      <if test="telecomShieldArea != null">
+        telecom_shield_area,
+      </if>
+      <if test="unicomShieldArea != null">
+        unicom_shield_area,
+      </if>
+      <if test="extnoAppendNumber != null">
+        extNo_append_number,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="rejectReason != null">
+        reject_reason,
+      </if>
+      <if test="comments != null">
+        comments,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="routeType != null">
+        route_type,
+      </if>
+      <if test="routeChannel != null">
+        route_channel,
+      </if>
+      <if test="routeRequire != null">
+        route_require,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=INTEGER},
+      </if>
+      <if test="recordType != null">
+        #{recordType,jdbcType=INTEGER},
+      </if>
+      <if test="network != null">
+        #{network,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="passpwd != null">
+        #{passpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="expidLen != null">
+        #{expidLen,jdbcType=INTEGER},
+      </if>
+      <if test="sendRate != null">
+        #{sendRate,jdbcType=INTEGER},
+      </if>
+      <if test="channelIp != null">
+        #{channelIp,jdbcType=VARCHAR},
+      </if>
+      <if test="channelPort != null">
+        #{channelPort,jdbcType=INTEGER},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceid != null">
+        #{serviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="msgformat != null">
+        #{msgformat,jdbcType=INTEGER},
+      </if>
+      <if test="localIp != null">
+        #{localIp,jdbcType=VARCHAR},
+      </if>
+      <if test="localPort != null">
+        #{localPort,jdbcType=INTEGER},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null">
+        #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="wordsLen != null">
+        #{wordsLen,jdbcType=INTEGER},
+      </if>
+      <if test="wordsMaxlen != null">
+        #{wordsMaxlen,jdbcType=INTEGER},
+      </if>
+      <if test="signPosition != null">
+        #{signPosition,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="channelDevelopFile != null">
+        #{channelDevelopFile,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeLabel != null">
+        #{tradeLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="loginUrl != null">
+        #{loginUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="submitUrl != null">
+        #{submitUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceUrl != null">
+        #{balanceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="statusUpMethod != null">
+        #{statusUpMethod,jdbcType=BIGINT},
+      </if>
+      <if test="statusUrl != null">
+        #{statusUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="upUrl != null">
+        #{upUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isProvince != null">
+        #{isProvince,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="shieldArea != null">
+        #{shieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileShieldArea != null">
+        #{mobileShieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="telecomShieldArea != null">
+        #{telecomShieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="unicomShieldArea != null">
+        #{unicomShieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="extnoAppendNumber != null">
+        #{extnoAppendNumber,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="rejectReason != null">
+        #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null">
+        #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="routeType != null">
+        #{routeType,jdbcType=INTEGER},
+      </if>
+      <if test="routeChannel != null">
+        #{routeChannel,jdbcType=INTEGER},
+      </if>
+      <if test="routeRequire != null">
+        #{routeRequire,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sioo.model.ChannelInfo">
+    update channel_info
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        channel_name = #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelType != null">
+        channel_type = #{channelType,jdbcType=INTEGER},
+      </if>
+      <if test="recordType != null">
+        record_type = #{recordType,jdbcType=INTEGER},
+      </if>
+      <if test="network != null">
+        network = #{network,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="passpwd != null">
+        passpwd = #{passpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="expidLen != null">
+        expid_len = #{expidLen,jdbcType=INTEGER},
+      </if>
+      <if test="sendRate != null">
+        send_rate = #{sendRate,jdbcType=INTEGER},
+      </if>
+      <if test="channelIp != null">
+        channel_ip = #{channelIp,jdbcType=VARCHAR},
+      </if>
+      <if test="channelPort != null">
+        channel_port = #{channelPort,jdbcType=INTEGER},
+      </if>
+      <if test="corpid != null">
+        corpid = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceid != null">
+        serviceid = #{serviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="msgformat != null">
+        msgformat = #{msgformat,jdbcType=INTEGER},
+      </if>
+      <if test="localIp != null">
+        local_ip = #{localIp,jdbcType=VARCHAR},
+      </if>
+      <if test="localPort != null">
+        local_port = #{localPort,jdbcType=INTEGER},
+      </if>
+      <if test="nodeid != null">
+        nodeid = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null">
+        provider = #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="wordsLen != null">
+        words_len = #{wordsLen,jdbcType=INTEGER},
+      </if>
+      <if test="wordsMaxlen != null">
+        words_maxlen = #{wordsMaxlen,jdbcType=INTEGER},
+      </if>
+      <if test="signPosition != null">
+        sign_position = #{signPosition,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="channelDevelopFile != null">
+        channel_develop_file = #{channelDevelopFile,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeLabel != null">
+        trade_label = #{tradeLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="loginUrl != null">
+        login_url = #{loginUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="submitUrl != null">
+        submit_url = #{submitUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceUrl != null">
+        balance_url = #{balanceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="statusUpMethod != null">
+        status_up_method = #{statusUpMethod,jdbcType=BIGINT},
+      </if>
+      <if test="statusUrl != null">
+        status_url = #{statusUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="upUrl != null">
+        up_url = #{upUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isProvince != null">
+        is_province = #{isProvince,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="shieldArea != null">
+        shield_area = #{shieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileShieldArea != null">
+        mobile_shield_area = #{mobileShieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="telecomShieldArea != null">
+        telecom_shield_area = #{telecomShieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="unicomShieldArea != null">
+        unicom_shield_area = #{unicomShieldArea,jdbcType=VARCHAR},
+      </if>
+      <if test="extnoAppendNumber != null">
+        extNo_append_number = #{extnoAppendNumber,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="rejectReason != null">
+        reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null">
+        comments = #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="routeType != null">
+        route_type = #{routeType,jdbcType=INTEGER},
+      </if>
+      <if test="routeChannel != null">
+        route_channel = #{routeChannel,jdbcType=INTEGER},
+      </if>
+      <if test="routeRequire != null">
+        route_require = #{routeRequire,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sioo.model.ChannelInfo">
+    update channel_info
+    set tenant_id = #{tenantId,jdbcType=VARCHAR},
+      channel_name = #{channelName,jdbcType=VARCHAR},
+      channel_type = #{channelType,jdbcType=INTEGER},
+      record_type = #{recordType,jdbcType=INTEGER},
+      network = #{network,jdbcType=INTEGER},
+      account = #{account,jdbcType=VARCHAR},
+      passpwd = #{passpwd,jdbcType=VARCHAR},
+      expid_len = #{expidLen,jdbcType=INTEGER},
+      send_rate = #{sendRate,jdbcType=INTEGER},
+      channel_ip = #{channelIp,jdbcType=VARCHAR},
+      channel_port = #{channelPort,jdbcType=INTEGER},
+      corpid = #{corpid,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      serviceid = #{serviceid,jdbcType=VARCHAR},
+      msgformat = #{msgformat,jdbcType=INTEGER},
+      local_ip = #{localIp,jdbcType=VARCHAR},
+      local_port = #{localPort,jdbcType=INTEGER},
+      nodeid = #{nodeid,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      provider = #{provider,jdbcType=VARCHAR},
+      words_len = #{wordsLen,jdbcType=INTEGER},
+      words_maxlen = #{wordsMaxlen,jdbcType=INTEGER},
+      sign_position = #{signPosition,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      balance = #{balance,jdbcType=VARCHAR},
+      channel_develop_file = #{channelDevelopFile,jdbcType=VARCHAR},
+      trade_label = #{tradeLabel,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      login_url = #{loginUrl,jdbcType=VARCHAR},
+      submit_url = #{submitUrl,jdbcType=VARCHAR},
+      balance_url = #{balanceUrl,jdbcType=VARCHAR},
+      status_up_method = #{statusUpMethod,jdbcType=BIGINT},
+      status_url = #{statusUrl,jdbcType=VARCHAR},
+      up_url = #{upUrl,jdbcType=VARCHAR},
+      is_province = #{isProvince,jdbcType=INTEGER},
+      area = #{area,jdbcType=VARCHAR},
+      shield_area = #{shieldArea,jdbcType=VARCHAR},
+      mobile_shield_area = #{mobileShieldArea,jdbcType=VARCHAR},
+      telecom_shield_area = #{telecomShieldArea,jdbcType=VARCHAR},
+      unicom_shield_area = #{unicomShieldArea,jdbcType=VARCHAR},
+      extNo_append_number = #{extnoAppendNumber,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      comments = #{comments,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=VARCHAR},
+      route_type = #{routeType,jdbcType=INTEGER},
+      route_channel = #{routeChannel,jdbcType=INTEGER},
+      route_require = #{routeRequire,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
