@@ -13,8 +13,8 @@
         </commentGenerator>
         <!--数据库链接地址账号密码-->
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.198:3306/spring_cloud"
-                        userId="root" password="Sioo58657689!@#">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test"
+                        userId="root" password="pass">
 
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>

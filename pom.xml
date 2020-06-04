@@ -37,15 +37,6 @@
                     <overwrite>true</overwrite>
                     <configurationFile>src/main/resources/generator.xml</configurationFile>
                 </configuration>
-                <!--<dependencies>-->
-                    <!--&lt;!&ndash; 数据库驱动 &ndash;&gt;-->
-                    <!--<dependency>-->
-                        <!--<groupId>mysql</groupId>-->
-                        <!--<artifactId>mysql-connector-java</artifactId>-->
-                        <!--<version>5.1.47</version>-->
-                        <!--<scope>runtime</scope>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
             </plugin>
         </plugins>
     </build>

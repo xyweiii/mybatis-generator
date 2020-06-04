@@ -12,10 +12,10 @@
             <property name="suppressAllComments" value="true"/>
             <property name="mapUnderscoreToCamelCase" value="true"/>
         </commentGenerator>
-        <!--数据库链接地址账号密码-->
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.198:3306/spring_cloud"
-                        userId="root" password="Sioo58657689!@#">
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test"
+                        userId="root" password="pass">
 
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
@@ -36,8 +36,11 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="channel_info" domainObjectName="ChannelInfo" enableCountByExample="false"
+        <table tableName="service_package_order" domainObjectName="" enableCountByExample="false"
                enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--字段名称以数据库中的字段为准,不进行驼峰转换,   数据库中的字段格式:  aaaaBbbb,不要使用 aaaa_bbbb  -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
     </context>
 </generatorConfiguration>
